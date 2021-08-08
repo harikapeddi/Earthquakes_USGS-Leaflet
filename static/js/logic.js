@@ -23,11 +23,15 @@ const topo = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
     attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
 });
 
+// const greyMap = L.tileLayer.grayscale('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+//     attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+// });
 
 // Create a baseMaps object.
 const baseMaps = {
     "Street Map": street,
     "Topographic Map": topo
+    // "Greyscale Map": greyMap
 };
 
 
@@ -41,7 +45,8 @@ const tectonic_plates = new L.LayerGroup();
 //create a overlay map for earthquakes
 const overlayMaps = {
     "Earthquakes": earthquakes,
-    "Techtonic Plates": tectonic_plates
+    "Techtonic Plates": tectonic_plates, 
+
 };
 
 // define a map object
@@ -81,17 +86,17 @@ d3.json(url).then(function (data) {
         switch (true) {
 
             case depth > 90:
-                return '#d73027';
+                return '#EA2C2C';
             case depth > 70:
-                return '#fc8d59';
+                return '#EA822C';
             case depth > 50:
-                return '#fee090';
+                return '#EE9C00';
             case depth > 30:
-                return '##e0f3f8';
+                return '#EECC00';
             case depth > 10:
-                return '#91bfdb';
+                return '#D4EE00';
             default: 
-                return '#4575b4'
+                return '#98EE00'
         }
     }
 
@@ -162,11 +167,12 @@ legend.onAdd = function () {
     var div = L.DomUtil.create('div', 'info legend');
     var grades = [90, 70, 50, 30, 10];
     var colors = [
-        '#d73027', 
-        '#fc8d59',
-        '#fee090',
-        '#e0f3f8',
-        '#91bfdb'
+        '#EA2C2C', 
+        '#EA822C',
+        '#EE9C00',
+        '#EECC00',
+        '#D4EE00',
+        '#98EE00'
     ];
 
     // loop through our density intervals and generate a label with a colored square for each interval
@@ -182,6 +188,7 @@ legend.onAdd = function () {
 
     return div;
 };
+
 
 legend.addTo(myMap);
 

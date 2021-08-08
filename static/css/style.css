@@ -8,3 +8,29 @@ body,
 html {
   height: 100%;
 }
+
+.legend {
+  background-color: white ;
+  line-height: 18px;
+  width: 100px;
+  color: [ #EA2C2C, #EA822C, #EE9C00, #EECC00, #D4EE00, #98EE00];
+  /* radius: 5px */
+}
+
+.legend i {
+  width: 18px;
+  height: 18px;
+  float: left;
+  margin-right: 8px;
+  opacity: 0.7;
+}
+
+/* .leaflet-bottom.leaflet-left {
+  width: 90%;
+}
+.leaflet-control-container .leaflet-timeline-controls {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  margin-bottom: 15px;
+} */

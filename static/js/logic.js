@@ -159,10 +159,10 @@ d3.json("https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/
 });
 
 // create a legend
-// get this from leaflet tutorial chloropleth 
-var legend = L.control({position: 'bottomleft'});
+// get this from leaflet tutorial choropleth 
+var legend = L.control({position: 'bottomright'});
 
-legend.onAdd = function () {
+legend.onAdd = function (map) {
 
     var div = L.DomUtil.create('div', 'info legend');
     var grades = [90, 70, 50, 30, 10];
@@ -171,19 +171,13 @@ legend.onAdd = function () {
         '#EA822C',
         '#EE9C00',
         '#EECC00',
-        '#D4EE00',
-        '#98EE00'
+        '#D4EE00'
     ];
 
     // loop through our density intervals and generate a label with a colored square for each interval
     for (var i = 0; i < grades.length; i++) {
         div.innerHTML +=
-            '<i style="background:'
-            + colors[i] 
-            + '"></i> ' 
-            + grades[i] 
-            + (grades[i + 1] ? '&ndash;' 
-            + grades[i + 1] + '<br>' : '+');
+            '<i style="background:'+ colors[i] + '"></i> '+ grades[i] + (grades[i + 1] ? '&ndash;'+ grades[i + 1] + '<br>' : '+');
     }
 
     return div;

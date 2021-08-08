@@ -13,8 +13,9 @@ html {
   background-color: white ;
   line-height: 18px;
   width: 100px;
-  color: [ #EA2C2C, #EA822C, #EE9C00, #EECC00, #D4EE00, #98EE00];
-  /* radius: 5px */
+  /* color: [#EA2C2C, #EA822C, #EE9C00, #EECC00, #D4EE00, #98EE00]; */
+  padding: 6px;
+  border-radius: 5px;
 }
 
 .legend i {
